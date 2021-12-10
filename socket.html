@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <title>Chatt</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascript/script.js"></script>
+    <link rel="stylesheet" href="/css/stylesheet.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="output"></div>
+      <div id="online"></div>
+      <div id="typingContainer"></div>
+    </div>
+    <div id="chattSpace">
+      <form id="chattForm">
+        <textarea id="chattInput" autofocus="autofocus"></textarea>
+        <input type="submit" id="button" value="Skicka" accesskey="Enter" />
+      </form>
+      <p id="nm"></p>
+    </div>
+  </body>
+</html>

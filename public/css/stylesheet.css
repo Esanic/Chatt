@@ -1,0 +1,109 @@
+html,
+body {
+  height: 100%;
+  font: 11pt Arial;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: gainsboro;
+}
+
+#container {
+  display: flex;
+  margin: auto;
+  height: 85%;
+  flex-wrap: wrap;
+}
+
+#output {
+  flex-basis: 85%;
+  height: 100%;
+  position: relative;
+  background-color: gainsboro;
+  overflow-y: auto;
+}
+
+#online {
+  background-color: lightgray;
+  height: 100%;
+  overflow-y: auto;
+  flex-basis: 15%;
+}
+
+#onlineHeader {
+  margin: 0 1rem;
+}
+
+#typingContainer {
+  height: 2rem;
+  background-color: gainsboro;
+  width: 100%;
+}
+
+.onlineList {
+  padding: 0 1rem;
+}
+
+#userTyping {
+  margin: 0 0 0 0.5rem;
+}
+
+#self {
+  flex-basis: 50%;
+}
+
+#clients {
+  flex-basis: 50%;
+}
+
+#chattSpace {
+  display: flex;
+  flex-direction: column;
+  height: 15%;
+}
+
+#chattForm {
+  display: flex;
+  margin: 2rem 0 0;
+  /* padding: 1rem 0 1rem 0; */
+  width: 100%;
+  height: 100%;
+}
+
+#chattInput {
+  resize: none;
+  padding: 0 1rem 0 0;
+  width: 100%;
+  border-radius: 0;
+  border: 0.1px solid black;
+}
+
+#button {
+  width: 7.7rem;
+  border-radius: 0;
+  border: 0.1px solid black;
+}
+
+.meChatt {
+  position: relative;
+  text-align: right;
+  width: 99%;
+}
+
+.disconnect,
+.connect,
+.otherChatt {
+  padding: 0 1rem;
+}
+
+.disconnect,
+.connect {
+  color: red;
+  font-weight: bold;
+}
+
+#nm {
+  width: content;
+  margin: auto;
+  color: red;
+}

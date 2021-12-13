@@ -1,9 +1,14 @@
-let nickname = prompt("Ange användarnamn");
+function evilInput (string){
+    string = string.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    return string;
+}
+
+let nickname = evilInput(prompt("Ange användarnamn"));
 let socket = io();
 socket.emit("nickname", nickname);
 
 window.onload = () => {
-
+    
     // Variabler
     let output = document.getElementById("output");
     let online = document.getElementById("online");
@@ -44,9 +49,10 @@ window.onload = () => {
     
     function enter() {
         let message = document.getElementById("chattInput").value;
+        let cleansedMessage = evilInput(message);
         
-        if (!message == "") {
-        let messageObject = {meddelande: message, användare: nickname}
+        if (!cleansedMessage == "") {
+        let messageObject = {meddelande: cleansedMessage, användare: nickname}
         let typingObject = {isTyping: false};
         socket.emit("chattMessage", messageObject);
         socket.emit("userTyping", typingObject);
@@ -55,12 +61,12 @@ window.onload = () => {
         let tid = new Date().toISOString().substr(11,8);
         const meChatt = document.createElement("p");
         meChatt.setAttribute("class","meChatt");
-        meChatt.innerHTML = `(${tid}) ${nickname}: ${message}`
+        meChatt.innerHTML = `(${tid}) ${nickname}: ${cleansedMessage}`
         output.appendChild(meChatt);
         output.lastElementChild.scrollIntoView({ behavior: 'smooth' });
         }
         else {
-            document.getElementById("nm").innerHTML =`Skriv ett meddelande!`;
+        document.getElementById("nm").innerHTML =`Skriv ett meddelande!`;
         }
     }
     //Hämtar ChattForm och lyssnar på submit, hindrar omladdning

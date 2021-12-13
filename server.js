@@ -15,6 +15,7 @@ app.get("/", (req, res) => {
 
 let connectedUsers = [];
 
+
 io.on("connection", (socket) => {
 
     socket.on("nickname", (data) => {
